@@ -1,0 +1,5 @@
+define([
+  './community.module'
+],function(){
+
+});

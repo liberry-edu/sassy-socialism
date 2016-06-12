@@ -1,0 +1,22 @@
+{
+  "name": "liberry-client",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-cookies": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.4.0",
+    "angular-touch": "^1.4.0",
+    "requirejs": "^2.1.0",
+    "angular-material": "^1.0.9",
+    "angular-messages": "^1.5.6",
+    "angular-ui-router": "^0.3.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0"
+  },
+  "appPath": "app",
+  "moduleName": "liberryClientApp"
+}
