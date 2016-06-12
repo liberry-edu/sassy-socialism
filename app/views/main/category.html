@@ -1,35 +1,37 @@
-<div>
-  <snap-dragger></snap-dragger>
-  <snap-content snap-opt-tap-to-close="false">
+<div layout-padding>
+  <!--<snap-dragger></snap-dragger>-->
+  <!--<snap-content snap-opt-tap-to-close="false">-->
 
-    <a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen;">
-			<span class="menutoggle">
-				<i ng-hide="menuOpen" class="fa fa-bars fa-2x"></i>
-				<i ng-show="menuOpen" class="fa fa-times fa-2x"></i>
-			</span>
-    </a>
+  <!--<a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen;">-->
+  <!--<span class="menutoggle">-->
+  <!--<i ng-hide="menuOpen" class="fa fa-bars fa-2x"></i>-->
+  <!--<i ng-show="menuOpen" class="fa fa-times fa-2x"></i>-->
+  <!--</span>-->
+  <!--</a>-->
 
-    <div class="fr">
-      <h2>Welcome to Liberry</h2>
+  <!--<div class="fr">-->
+  <!--<h2>Welcome to Liberry</h2>-->
+  <!--</div>-->
+  <div layout-gt-md="row" layout-sm="column" layout-xs="column" flex>
+    <div flex-gt-md="60" flex-xs flex-sm>
+      <md-card style="height: 200px;" layout-align="center center" layout="column"> Content here</md-card>
     </div>
-    <div class="jumbotron" style="margin-top:0px; margin-bottom:0px;" layout="row" flex>
-      <div flex="60">Content</div>
-      <div class="container-fluid" layout="column" flex>
-        <md-card ng-repeat="move in category" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}"
-                 md-theme-watch flex="90" ui-sref='learn.category({categoryId:move.key})'>
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">{{move.name}}</span>
-              <span class="md-subhead">Short description</span>
-            </md-card-title-text>
-            <md-card-title-media>
-              <div class="md-media-sm card-media">
-                <img ng-src="{{move.contenturl}}" width="100%" style="max-width: 90px;"/>
-              </div>
-            </md-card-title-media>
-          </md-card-title>
-        </md-card>
-      </div>
+    <div class="container-fluid" layout="column" flex>
+      <md-card ng-repeat="move in category" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}"
+               md-theme-watch flex="90" ui-sref='learn.category({categoryId:move.key})'>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{move.name}}</span>
+            <span class="md-subhead">Short description</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media">
+              <img ng-src="{{move.contenturl}}" width="100%" style="max-width: 90px;"/>
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+      </md-card>
     </div>
-  </snap-content>
+  </div>
+  <!--</snap-content>-->
 </div>

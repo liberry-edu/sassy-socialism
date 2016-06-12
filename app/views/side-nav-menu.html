@@ -1,0 +1,15 @@
+<md-toolbar class="nav-header" layout="column" layout-align="start center" layout-padding>
+  <a ng-href="/" class="docs-logo" href="/">
+    <img src="images/flat-avatar.png" alt="" class="md-avatar img-circle">
+  </a>
+</md-toolbar>
+<md-list flex>
+  <md-list-item ng-repeat="item in menuItems" class="md-2-line" ng-class="{active: $state.includes('{{item.name}}') }"
+                ui-sref={{item.name}} ng-click="toggleSideNav()">
+    <div class="md-list-item-text">
+      <h3>{{item.text}}</h3>
+      <p>{{item.description}}</p>
+    </div>
+  </md-list-item>
+  <md-divider ></md-divider>
+</md-list>

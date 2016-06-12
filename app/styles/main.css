@@ -221,6 +221,18 @@ th {
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  width: 6px
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3)
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 1.8);
+}
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
@@ -8262,7 +8274,6 @@ button.close {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #1abc9c;
   color: white;
   /*
      * Base structure
@@ -8346,13 +8357,13 @@ button.close {
   font-size: 500px;
   color: rgba(0, 0, 0, 0.1);
   position: absolute;
-  right: -100px;
+  right: 0px;
   top: 180px;
   overflow: hidden;
 }
 
 .dashboard-page .jumbotron {
-  background: #1abc9c;
+  background: whitesmoke;
 }
 
 .dashboard-page .fr {
@@ -8676,26 +8687,25 @@ to prevent collapsing during animation*/
 /*.well[ui-view]{
  height: 65px;
 }*/
-[ui-view] {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+
+.docs-logo > img {
+  height: 150px;
+  width: auto;
+  display: block;
 }
 
 .ui-view-container {
   position: relative;
 }
 
-[ui-view].ng-leave {
+[ui-view].main-content.ng-leave {
   -webkit-animation: scaleDown .7s ease both;
   animation: scaleDown .7s ease both;
 }
 
-[ui-view].ng-enter {
-  -webkit-animation: moveFromBottom .9s ease both;
-  animation: moveFromBottom .9s ease both;
+[ui-view].main-content.ng-enter {
+  -webkit-animation: moveFromRight .9s ease both;
+  animation: moveFromRight .9s ease both;
 }
 
 @-webkit-keyframes scaleDown {
