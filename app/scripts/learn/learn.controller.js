@@ -21,7 +21,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 3,
           'media_total': 9,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '12321245',
@@ -29,7 +29,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 2,
           'media_total': 7,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '1732145',
@@ -37,7 +37,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 4,
           'media_total': 6,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '632145',
@@ -45,7 +45,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 3,
           'media_total': 5,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '92145',
@@ -53,7 +53,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 5,
           'media_total': 5,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '6145',
@@ -61,7 +61,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 7,
           'media_total': 9,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '282145',
@@ -69,7 +69,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 2,
           'media_total': 4,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '932145',
@@ -77,7 +77,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 5,
           'media_total': 6,
-          'type': 'category'
+          'type': 'files_folder'
         },
         {
           'key': '32',
@@ -85,7 +85,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 3,
           'media_total': 3,
-          'type': 'category'
+          'type': 'folder_folder'
         },
         {
           'key': '67',
@@ -93,7 +93,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 7,
           'media_total': 9,
-          'type': 'category'
+          'type': 'folder_folder'
         },
         {
           'key': '121',
@@ -101,7 +101,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 3,
           'media_total': 9,
-          'type': 'category'
+          'type': 'folder_folder'
         },
         {
           'key': '1235',
@@ -109,7 +109,7 @@ define(['./learn.module'], function () {
           'image': 'images/bl1.jpg',
           'media_consumed': 3,
           'media_total': 8,
-          'type': 'category'
+          'type': 'folder_folder'
         }
       ];
     }]);

@@ -15,7 +15,8 @@
       'angular-material': '../../bower_components/angular-material/angular-material',
       'angular-messages': '../../bower_components/angular-messages/angular-messages',
       'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
-      'angular-touch': '../../bower_components/angular-touch/angular-touch'
+      'angular-touch': '../../bower_components/angular-touch/angular-touch',
+      videogular: '../../bower_components/videogular/videogular'
     },
     shim: {
       angular: {
@@ -46,6 +47,9 @@
         'angular'
       ],
       'angular-messages': [
+        'angular'
+      ],
+      videogular: [
         'angular'
       ],
       'angular-mocks': {
@@ -80,6 +84,7 @@
     'angular-animate',
     'angular-material',
     'angular-aria',
+    'videogular',
     'root'
   ], function (angular) {
     angular.bootstrap(document, ['liberry.mainModule']);
