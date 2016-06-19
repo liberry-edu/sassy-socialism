@@ -18,6 +18,7 @@ define(['./learn.module'], function () {
         {
           'key': '1232145',
           'name': 'Agriculture',
+          'desc': 'Learn about farming',
           'image': 'images/bl1.jpg',
           'media_consumed': 3,
           'media_total': 9,
