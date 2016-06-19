@@ -18,6 +18,7 @@ define(["./learn.module"], function () {
         {
           "key": "1232145",
           "name": "Video: Meet Rahul ",
+          "desc": "Interesting Video",
           "contenturl": "content/demo.mp4",
           "type": "video"
         },
