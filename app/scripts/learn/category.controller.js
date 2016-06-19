@@ -31,7 +31,7 @@ define(["./learn.module"], function () {
           "key": "1732145",
           "name": "Tina meets Kajal",
           "contenturl": "images/bl1.jpg",
-          "type": "music"
+          "type": "audio"
         },
         {
           "key": "632145",

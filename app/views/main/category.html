@@ -17,6 +17,11 @@
       <md-card ng-repeat="move in contents" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}"
                md-theme-watch flex="90" ui-sref='learn.category({categoryId:move.key})'>
         <md-card-title>
+          <md-card-title-media>
+            <div class="md-media-sm card-media">
+              <img ng-src="images/{{move.type}}.png" width="100%" style="max-width: 90px;"/>
+            </div>
+          </md-card-title-media>
           <md-card-title-text>
             <span class="md-headline">{{move.name}}</span>
             <span class="md-subhead">Short description</span>
