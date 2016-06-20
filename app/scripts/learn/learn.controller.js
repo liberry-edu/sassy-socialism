@@ -16,7 +16,7 @@ define(['./learn.module'], function () {
     .controller('learn.LearnCtrl', ['$scope', function ($scope) {
       $scope.topBucket = [
         {
-          'key': '1232145',
+          'key': '9023',
           'name': 'Agriculture',
           'desc': 'Learn about farming',
           'image': 'images/bl1.jpg',
@@ -25,7 +25,7 @@ define(['./learn.module'], function () {
           'type': 'files_folder'
         },
         {
-          'key': '12321245',
+          'key': '9012',
           'name': 'Health & Hygiene',
           'image': 'images/bl1.jpg',
           'media_consumed': 2,

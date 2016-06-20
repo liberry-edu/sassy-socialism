@@ -4,7 +4,6 @@ define(["./learn.module"], function () {
 
   angular.module('liberry.learnModule')
     .controller('learn.VideoCtrl', ["$scope", "$sce", function ($scope, $sce) {
-        $scope.changeV
             this.config = {
                 preload: "none",
                 sources: [

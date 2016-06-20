@@ -34,7 +34,7 @@ define(['./main.module'],
       {
         name: 'learn.category',
         state: {
-          url: '/learn/:categoryId',
+          url: '/learn/:categoryId/:contentId',
           parent: 'main',
           templateUrl: 'views/main/category.html',
           controller: 'learn.CategoryCtrl',

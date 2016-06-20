@@ -15,7 +15,7 @@
   <div layout-gt-md="row" layout-sm="column" layout-xs="column" flex>
     <div class="container-fluid" layout="column" flex>
       <md-card ng-repeat="move in contents" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}"
-               md-theme-watch flex="90" ui-sref='learn.category({categoryId:move.key})' ui-sref-active="learnCategoryActive">
+               md-theme-watch flex="90" ui-sref='learn.category({contentId:move.key})' ui-sref-active="learnCategoryActive">
         <md-card-title>
           <md-card-title-media>
             <div class="md-media-sm card-media">
@@ -24,7 +24,7 @@
           </md-card-title-media>
           <md-card-title-text>
             <span class="md-headline">{{move.name}}</span>
-            <span class="md-subhead" ng-show="{{move.desc}}">{{move.desc}}</span>
+            <span class="md-subhead" ng-show="move.desc">{{move.desc}}</span>
           </md-card-title-text>
         </md-card-title>
       </md-card>
@@ -32,8 +32,8 @@
 
     <div flex-gt-md="60" flex-xs flex-sm>
       <md-card layout-align="center center" layout="column">
-        <div ng-show="contents[0].type == 'video'" style="width:100%;">
-          <div ng-init="r_url=contents[0].contenturl;">
+        <div ng-show="content.type == 'video'" style="width:100%;">
+          <div ng-init="r_url=content.contenturl;">
             <div ng-controller="learn.VideoCtrl as ctr" class="videogular-container">
                 <videogular vg-theme="ctr.config.theme.url">
                     <vg-media vg-src="ctr.config.sources"
@@ -44,13 +44,13 @@
             </div>
           </div>
         </div>
-        <div ng-show="contents[0].type == 'doc'">
+        <div ng-show="content.type == 'doc'">
           <h3>I am a doc. I will open myself in an embedded document reader.</h3>
         </div>
-        <div ng-show="contents[0].type == 'music'">
+        <div ng-show="content.type == 'audio'">
           <h3>I am a music file. I will open myself in an embedded music player.</h3>
         </div>
-        <div ng-show="contents[0].type == 'game'">
+        <div ng-show="content.type == 'game'">
           <h3>I am a game. You can play myself.</h3>
         </div>
       </md-card>

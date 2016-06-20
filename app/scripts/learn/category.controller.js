@@ -13,7 +13,7 @@ define(["./learn.module"], function () {
    * Controller of yapp
    */
   angular.module('liberry.learnModule')
-    .controller('learn.CategoryCtrl', ["$scope", function ($scope) {
+    .controller('learn.CategoryCtrl', ["$scope", "$stateParams", function ($scope, $stateParams) {
       $scope.contents = [
         {
           "key": "1232145",
@@ -53,5 +53,12 @@ define(["./learn.module"], function () {
           "type": "video"
         }
       ];
+
+      for (var i = 0; i < $scope.contents.length; i++) { 
+        if ($stateParams.contentId == $scope.contents[i].key)
+          $scope.content = $scope.contents[i];
+      }
+      console.log($scope.content);
+
     }]);
 });
