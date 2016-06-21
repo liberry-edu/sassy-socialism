@@ -4,5 +4,5 @@
 define([ "angular"], function(angular) {
   'use strict';
 
-  return angular.module("liberry.learnModule", ['ngMaterial', 'liberry.accountModule', 'ngSanitize', 'com.2fdevs.videogular']);
+  return angular.module("liberry.learnModule", ['ngMaterial', 'liberry.accountModule', 'ngSanitize', 'com.2fdevs.videogular','LocalStorageModule']);
 });

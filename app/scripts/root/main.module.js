@@ -8,9 +8,10 @@ define([
   'angular-aria',
   'angular-ui-router',
   'angular-messages',
+  'angular-local-storage',
   'learn',
   'community',
-  'account'
+  'account',
 ], function (angular) {
   'use strict';
 
@@ -20,6 +21,7 @@ define([
     'ngMaterial',
     'ngMessages',
     'ngSanitize',
+    'LocalStorageModule',
     'ngAria',
     'ngAnimate',
     'liberry.accountModule',
