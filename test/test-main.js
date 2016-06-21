@@ -24,7 +24,8 @@ requirejs.config({
       'angular-material': '../../bower_components/angular-material/angular-material',
       'angular-messages': '../../bower_components/angular-messages/angular-messages',
       'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
-      'angular-touch': '../../bower_components/angular-touch/angular-touch'
+      'angular-touch': '../../bower_components/angular-touch/angular-touch',
+      videogular: '../../bower_components/videogular/videogular'
     },
 
     shim: {
