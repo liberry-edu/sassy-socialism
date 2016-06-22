@@ -1,61 +1,35 @@
-<div layout-padding>
-  <!--<snap-dragger></snap-dragger>-->
-  <!--<snap-content snap-opt-tap-to-close="false">-->
-
-  <!--<a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen;">-->
-  <!--<span class="menutoggle">-->
-  <!--<i ng-hide="menuOpen" class="fa fa-bars fa-2x"></i>-->
-  <!--<i ng-show="menuOpen" class="fa fa-times fa-2x"></i>-->
-  <!--</span>-->
-  <!--</a>-->
+<div>
 
   <!--<div class="fr">-->
   <!--<h2>Welcome to Liberry</h2>-->
   <!--</div>-->
-  <div layout-gt-md="row" layout-sm="column" layout-xs="column" flex>
-    <div class="container-fluid" layout="column" flex>
-      <md-card ng-repeat="move in contents" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}"
-               md-theme-watch flex="90" ui-sref='learn.category({contentId:move.key})' ui-sref-active="learnCategoryActive">
+  <div class="container-fluid" layout="row" layout-wrap flex layout-padding>
+    <div flex-gt-md="50" flex-xs flex-sm ng-repeat="move in topBucket" layout="row" layout-align="center center">
+      <!-- <div class="row"> -->
+      
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch flex="90" ui-sref='learn.category({categoryId:move.id})'>
         <md-card-title>
-          <md-card-title-media>
-            <div class="md-media-sm card-media">
-              <img ng-src="images/{{move.type}}.png" width="100%" style="max-width: 60px;"/>
-            </div>
-          </md-card-title-media>
           <md-card-title-text>
             <span class="md-headline">{{move.name}}</span>
             <span class="md-subhead" ng-show="move.desc">{{move.desc}}</span>
           </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </div>
-
-    <div flex-gt-md="60" flex-xs flex-sm>
-      <md-card layout-align="center center" layout="column">
-        <div ng-show="content.type == 'video'" style="width:100%;">
-          <div ng-init="r_url=content.contenturl;">
-            <div ng-controller="learn.VideoCtrl as ctr" class="videogular-container">
-                <videogular vg-theme="ctr.config.theme.url">
-                    <vg-media vg-src="ctr.config.sources"
-                              vg-native-controls="true">
-                    </vg-media>
-                </videogular>
-                {{ctr.config.tracks}}
+          <md-card-title-media>
+            <div class="md-media-sm card-media">
+              <img ng-src="{{move.image}}" width="100%" style="max-width: 90px;"/>
             </div>
-          </div>
-        </div>
-        <div ng-show="content.type == 'doc'">
-          <h3>I am a doc. I will open myself in an embedded document reader.</h3>
-        </div>
-        <div ng-show="content.type == 'audio'">
-          <h3>I am a music file. I will open myself in an embedded music player.</h3>
-        </div>
-        <div ng-show="content.type == 'game'">
-          <h3>I am a game. You can play myself.</h3>
-        </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-content>
+          <md-progress-linear md-mode="determinate"
+                              value="{{move.media_consumed/move.media_total*100}}"></md-progress-linear>
+            <span>
+            {{move.media_consumed}} / {{move.media_total}} videos watched
+            </span>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center" style="margin-top:-20px;">
+          <md-button class="md-primary" ui-sref='learn.category({categoryId:move.id})'>EXPLORE</md-button>
+        </md-card-actions>
       </md-card>
     </div>
-
   </div>
-  <!--</snap-content>-->
 </div>

@@ -72,7 +72,7 @@ define(["./account.module"], function () {
             var errorCallback = function(response) {
                 $scope.error = response.message;
             };
-            $http.post('/api/isValidUser', payload).then(successCallback, errorCallback);
+            $http.post('http://52.77.111.177:8080/api/isValidUser', payload).then(successCallback, errorCallback);
         };
         return false;
         }

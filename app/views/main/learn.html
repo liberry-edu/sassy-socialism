@@ -7,7 +7,7 @@
     <div flex-gt-md="50" flex-xs flex-sm ng-repeat="move in topBucket" layout="row" layout-align="center center">
       <!-- <div class="row"> -->
       
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch flex="90" ui-sref='learn.category({categoryId:move.key})'>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch flex="90" ui-sref='learn.category({categoryId:move.id})'>
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{move.name}}</span>
@@ -19,15 +19,15 @@
             </div>
           </md-card-title-media>
         </md-card-title>
-        <md-card-content>
+       <!--  <md-card-content>
           <md-progress-linear md-mode="determinate"
                               value="{{move.media_consumed/move.media_total*100}}"></md-progress-linear>
             <span>
             {{move.media_consumed}} / {{move.media_total}} videos watched
             </span>
-        </md-card-content>
+        </md-card-content> -->
         <md-card-actions layout="row" layout-align="end center" style="margin-top:-20px;">
-          <md-button class="md-primary" ui-sref='learn.category({categoryId:move.key})'>EXPLORE</md-button>
+          <md-button class="md-primary" ui-sref='learn.category({categoryId:move.id})'>EXPLORE</md-button>
         </md-card-actions>
       </md-card>
     </div>
