@@ -70,9 +70,9 @@ define(["./learn.module"], function () {
     "media_total": 0
   }
 
-      $http({method: 'GET', url: 'http://52.77.111.177:8080/api/modules', headers: {
-          'Authorization': 'Basic cHM6cGFzc3dvcmQ=',
-          params: {filters: {"parent_id":null, "category_id": $stateParams.CategoryId}}
+
+      $http({method: 'GET', url: 'http://52.77.111.177:8080/api/modules?filters={"parent_id":null, "category_id": ' + $stateParams.categoryId + '}', headers: {
+          'Authorization': 'Basic cHM6cGFzc3dvcmQ='
         }
       }).then(function(res){
          console.log(res.data);
