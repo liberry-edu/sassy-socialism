@@ -13,55 +13,34 @@ define(["./learn.module"], function () {
    * Controller of yapp
    */
   angular.module('liberry.learnModule')
-    .controller('learn.CategoryCtrl', ["$scope", "$stateParams", function ($scope, $stateParams) {
-      $scope.contents = [
-        {
-          "key": "1232145",
-          "name": "Video: Meet Rahul ",
-          "desc": "Interesting Video",
-          "contenturl": "content/demo.mp4",
-          "type": "video"
-        },
-        {
-          "key": "12321245",
-          "name": "Rahul meets Tina",
-          "contenturl": "images/bl1.jpg",
-          "type": "doc"
-        },
-        {
-          "key": "1732145",
-          "name": "Tina meets Kajal",
-          "contenturl": "images/bl1.jpg",
-          "type": "audio"
-        },
-        {
-          "key": "632145",
-          "name": "Kajal meets Nimit",
-          "contenturl": "images/bl1.jpg",
-          "type": "game"
-        },
-        {
-          "key": "92145",
-          "name": "Nimit meets Ahilya",
-          "contenturl": "content/demo.mp4",
-          "type": "video"
-        },
-        {
-          "key": "6145",
-          "name": "Ahilya meets Suhas",
-          "contenturl": "content/demo.mp4",
-          "type": "video"
+    .controller('learn.CategoryCtrl', ["$scope", "$stateParams","$http", function ($scope, $stateParams, $http) {
+
+      $scope.content =
+  {
+    "id": 1,
+    "name": "Soil Testing",
+    "description": null,
+    "image": null,
+    "status": "active",
+    "category_id": 1,
+    "parent_id": null,
+    "default_playlist_id": null,
+    "created_at": "2016-06-19T18:45:53.000Z",
+    "updated_at": "2016-06-19T18:45:53.000Z",
+    "media_consumed": 0,
+    "media_total": 0
+  }
+
+
+      $http({method: 'GET', url: '/api/modules?filters={"parent_id":null, "category_id": ' + $stateParams.categoryId + '}', headers: {
+          'Authorization': 'Basic cHM6cGFzc3dvcmQ='
         }
-      ];
-
-      $scope.content = $scope.contents[0];
-
-      for (var i = 0; i < $scope.contents.length; i++) {
-        if ($stateParams.contentId === $scope.contents[i].key) {
-          $scope.content = $scope.contents[i];
-        }
-      }
-      console.log($scope.content);
-
+      }).then(function(res){
+         console.log(res.data);
+         $scope.topBucket = res.data;
+      }, function(er){
+        console.log(er);
+      });
+      
     }]);
 });
