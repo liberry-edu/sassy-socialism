@@ -1,7 +1,7 @@
 /**
  * Created by peace on 12/6/16.
  */
-define(["./main.module"], function () {
+define(['./main.module'], function () {
 
   'use strict';
 

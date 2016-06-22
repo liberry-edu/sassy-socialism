@@ -1,4 +1,4 @@
-define(["./main.module"],
+define(['./main.module'],
   function () {
     'use strict';
 

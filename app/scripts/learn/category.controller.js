@@ -54,11 +54,12 @@ define(["./learn.module"], function () {
         }
       ];
 
-      $scope.content = $scope.contents[0]
+      $scope.content = $scope.contents[0];
 
-      for (var i = 0; i < $scope.contents.length; i++) { 
-        if ($stateParams.contentId == $scope.contents[i].key)
+      for (var i = 0; i < $scope.contents.length; i++) {
+        if ($stateParams.contentId === $scope.contents[i].key) {
           $scope.content = $scope.contents[i];
+        }
       }
       console.log($scope.content);
 

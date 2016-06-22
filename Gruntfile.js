@@ -414,6 +414,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'newer:jshint',
+    'newer:jscs',
     'wiredep',
     'bowerRequirejs:app',
     'replace:test',
@@ -445,6 +447,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'newer:jshint',
+      'newer:jscs',
       'wiredep',
       'bowerRequirejs:app',
       'concurrent:server',

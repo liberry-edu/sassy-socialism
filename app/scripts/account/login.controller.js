@@ -25,13 +25,13 @@ define(["./account.module"], function () {
         },
         getAuthentication: function() {
             var payload = {
-                username: localStorageService.get('username'),
-            }
+              username: localStorageService.get('username')
+            };
             return payload;
         }
-    }
+    };
     return authService;
-  })
+    });
 
   angular.module('liberry.accountModule')
   .factory('httpRequestInterceptor', function (AuthService) {
@@ -40,7 +40,7 @@ define(["./account.module"], function () {
         if(AuthService.isAuthenticated()) {
             var authentication = AuthService.getAuthentication();
             var token = window.btoa(authentication.username + ':' + authentication.password);
-            config.headers['Authorization'] = 'Basic ' + token;
+          config.headers.Authorization = 'Basic ' + token;
         }
         return config;
       }
@@ -57,29 +57,29 @@ define(["./account.module"], function () {
             var payload = {
                 username: $scope.username,
                 password: 'password'
-            }
+            };
             var successCallback = function(response) {
                 if(response) {
                     console.log($scope.username);
                     AuthService.authenticate($scope.username, 'password');
-                    console.log(AuthService.getAuthentication()['username']);
+                  console.log(AuthService.getAuthentication().username);
                     $location.path('/main/learn');
                 }
                 else {
                     $scope.error = "Invalid username and/or password";
                 }
-            }
+            };
             var errorCallback = function(response) {
                 $scope.error = response.message;
-            }
+            };
             $http.post('/api/isValidUser', payload).then(successCallback, errorCallback);
-        }
+        };
         return false;
         }
     ]);
 
   angular.module('liberry.accountModule')
-  .controller('account.LogoutCtrl', ['$scope', '$http', 'AuthService', function($scope, $http, AuthService) {
+    .controller('account.LogoutCtrl', ['$location', function ($location) {
         //TODO FORGET AUTHENTICATION HEADERS ON CLIENT SIDE
         $location.path('/login');
       }
@@ -114,7 +114,7 @@ define(["./account.module"], function () {
 
   angular.module('liberry.accountModule')
   .run(function ($rootScope, $state, AuthService) {
-    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+      $rootScope.$on("$stateChangeStart", function (event, toState) {
       if (toState.authenticate && !AuthService.isAuthenticated()){
         // User isn’t authenticated
         $rootScope.returnToState = toState.url;

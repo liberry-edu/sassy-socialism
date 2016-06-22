@@ -95,7 +95,7 @@ define(['./main.module'],
       '$stateProvider',
       '$urlRouterProvider',
       '$locationProvider',
-      function ($stateProvider, $urlRouterProvider, $locationProvider) {
+      function ($stateProvider) {
         // Now set up the states
         // $urlRouterProvider.when('/main', '/main/learn');
         // $urlRouterProvider.otherwise('/login');
