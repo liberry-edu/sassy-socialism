@@ -37,12 +37,23 @@ define(['./main.module'],
       {
         name: 'learn.category',
         state: {
-          url: '/learn/:categoryId/:contentId',
+          url: '/learn/:categoryId',
           parent: 'main',
           templateUrl: 'views/main/category.html',
           authenticate: true,
           controller: 'learn.CategoryCtrl',
           data: {text: 'Learn category', description: '', visible: false}
+        }
+      },
+      {
+        name: 'learn.content',
+        state: {
+          url: '/learn/:moduleID',
+          parent: 'main',
+          templateUrl: 'views/main/content.html',
+          authenticate: true,
+          controller: 'learn.ContentCtrl',
+          data: {text: 'Module Contents', description: '', visible: false}
         }
       },
       {

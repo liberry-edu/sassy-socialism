@@ -15,7 +15,7 @@ define(['./learn.module'], function () {
   angular.module('liberry.learnModule')
     .controller('learn.LearnCtrl', ['$scope', '$http', function ($scope, $http) {
       $http({
-        method: 'GET', url: '/api/categories'
+        method: 'GET', url: 'http://52.77.111.177:8080/api/categories'
       }).then(function (res) {
         $scope.topBucket = res.data;
       });

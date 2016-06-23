@@ -21,8 +21,7 @@ define(['./account.module'], function () {
             var authentication = AuthService.getAuthentication();
             var token = (window.btoa(authentication.username + ':' + 'password'/*authentication.password*/)).toString('base64');
             config.headers.Authorization = 'Basic ' + token;
-            console.log("***********",token, authentication.username);
-          }
+           }
           return config;
         }
       };
@@ -53,7 +52,7 @@ define(['./account.module'], function () {
           var errorCallback = function (response) {
             $scope.error = response.message;
           };
-          $http.post('/api/isValidUser', payload).then(successCallback, errorCallback);
+          $http.post('http://52.77.111.177:8080/api/isValidUser', payload).then(successCallback, errorCallback);
         };
         return false;
       }
