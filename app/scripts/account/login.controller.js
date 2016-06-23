@@ -19,8 +19,9 @@ define(['./account.module'], function () {
         request: function (config) {
           if (AuthService.isAuthenticated()) {
             var authentication = AuthService.getAuthentication();
-            var token = window.btoa(authentication.username + ':' + authentication.password);
+            var token = (window.btoa(authentication.username + ':' + 'password'/*authentication.password*/)).toString('base64');
             config.headers.Authorization = 'Basic ' + token;
+            console.log("***********",token, authentication.username);
           }
           return config;
         }
