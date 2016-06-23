@@ -1,4 +1,5 @@
 define([
   './account.module',
-  './login.controller'
+  './login.controller',
+  './authentication.service'
 ],function(){});

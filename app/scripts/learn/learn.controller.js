@@ -13,13 +13,14 @@ define(['./learn.module'], function () {
    * Controller of yapp
    */
   angular.module('liberry.learnModule')
-    .controller('learn.LearnCtrl', ['$scope','$http', function ($scope,$http) {
-
-      $http({method: 'GET', url: '/api/categories', headers: {
-          'Authorization': 'Basic cHM6cGFzc3dvcmQ='}
-      }).then(function(res){
-         $scope.topBucket = res.data;
+    .controller('learn.LearnCtrl', ['$scope', '$http', function ($scope, $http) {
+      $http({
+        method: 'GET', url: '/api/categories', headers: {
+          'Authorization': 'Basic cHM6cGFzc3dvcmQ='
+        }
+      }).then(function (res) {
+        $scope.topBucket = res.data;
       });
-
-    }]);
+    }]
+  );
 });
