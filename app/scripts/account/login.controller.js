@@ -40,7 +40,7 @@ define(['./account.module'], function () {
           };
           var successCallback = function (response) {
             if (response) {
-              console.log($scope.username);
+              console.log(response);
               AuthService.authenticate($scope.username, 'password');
               console.log(AuthService.getAuthentication().username);
               $location.path('/main/learn');
@@ -52,7 +52,7 @@ define(['./account.module'], function () {
           var errorCallback = function (response) {
             $scope.error = response.message;
           };
-          $http.post('http://52.77.111.177:8080/api/isValidUser', payload).then(successCallback, errorCallback);
+          $http.post('/api/isValidUser', payload).then(successCallback, errorCallback);
         };
         return false;
       }

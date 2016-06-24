@@ -18,7 +18,7 @@ define(['./learn.module'], function () {
 
    $http({
       method: 'GET',
-      url: 'http://52.77.111.177:8080/api/modules?filters={"parent_id":null, "category_id": ' + $stateParams.categoryId + '}'
+      url: '/api/modules?filters={"parent_id":null, "category_id": ' + $stateParams.categoryId + '}'
     }).then(function (res) {
       console.log(res.data);
       $scope.topBucket = res.data;
