@@ -33,19 +33,52 @@ define(['./account.module'], function () {
         // if(AuthService.isAuthenticated()) {
         //     $location.path('/main/learn');
         // }
+
         $scope.authenticate = function () {
+          console.log($scope.username);
+          if ($scope.username == null || $scope.username == "") {
+            alert("Please enter your username.");
+            return false;
+          }
+
           var payload = {
-            username: $scope.username,
-            password: 'password'
+            username: $scope.username.replace(/ /g,''),
+            password: 'password',
           };
+
           var successCallback = function (response) {
-            if (response) {
               console.log(response);
-              AuthService.authenticate($scope.username, 'password');
+            if (response && response.data) {
+              AuthService.authenticate($scope.username.replace(/ /g,''), 'password');
               console.log(AuthService.getAuthentication().username);
               $location.path('/main/learn');
             }
             else {
+              // register the user
+              // invariant all users would have password as 'password'
+              
+              var successCallbackRegister = function(responseRegister) {
+                  console.log(responseRegister);
+                  console.log("success");
+                  AuthService.authenticate($scope.username.replace(/ /g,''), 'password');
+                  $location.path('/main/learn');
+              }
+
+              var errorCallbackRegister = function(responseRegister) {
+                  console.log(responseRegister);
+                  console.log("error");
+                  $scope.error = responseRegister.message;
+              }
+              
+              var payloadRegister = {
+                      username: $scope.username.replace(/ /g,''),
+                      password: 'password',
+                      name: $scope.username.replace(/ /g,''),
+                      email: $scope.username.replace(/ /g,'')+"@liberry.in"
+              }
+
+              $http.post('/api/register', payloadRegister).then(successCallbackRegister, errorCallbackRegister);
+
               $scope.error = 'Invalid username and/or password';
             }
           };
