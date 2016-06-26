@@ -1,7 +1,7 @@
 /**
  * Created by peace on 12/6/16.
  */
-define(["./learn.module"], function () {
+define(['./learn.module'], function () {
 
   'use strict';
 
@@ -13,7 +13,7 @@ define(["./learn.module"], function () {
    * Controller of yapp
    */
   angular.module('liberry.learnModule')
-    .controller('learn.ContentCtrl', ["$scope", "$stateParams","$http", function ($scope, $stateParams, $http) {
+    .controller('learn.ContentCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
       // $scope.contents = [
       //   {
       //     "key": "1232145",
@@ -55,13 +55,13 @@ define(["./learn.module"], function () {
       // ];
 
       $scope.contents=[];
-     
+
     $http({
       method: 'GET',
       url: '/api/contents?filters={"module_id": ' + $stateParams.moduleID + '}'
     }).then(function (res) {
       $scope.contents = res.data;
-      console.log("CONTENTS: ",$scope.contents);
+      console.log('CONTENTS: ', $scope.contents);
     }, function (er) {
       console.log(er);
     });
@@ -73,7 +73,7 @@ define(["./learn.module"], function () {
       //     $scope.content = $scope.contents[i];
       //   }
       // }
-      console.log("CONTENTS: ",$scope.contents);
+      console.log('CONTENTS: ', $scope.contents);
 
     }]);
 });

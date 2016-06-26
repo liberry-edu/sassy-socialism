@@ -16,7 +16,7 @@ define(['./learn.module'], function () {
 
   learnModule.controller('learn.CategoryCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
 
-   $http({
+    $http({
       method: 'GET',
       url: '/api/modules?filters={"parent_id":null, "category_id": ' + $stateParams.categoryId + '}'
     }).then(function (res) {
