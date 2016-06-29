@@ -37,7 +37,7 @@ define(['./main.module'],
       {
         name: 'learn.category',
         state: {
-          url: '/learn/:categoryId',
+          url: '/learn/category/{categoryId:int}',
           parent: 'main',
           templateUrl: 'views/main/category.html',
           authenticate: true,
@@ -48,7 +48,7 @@ define(['./main.module'],
       {
         name: 'learn.content',
         state: {
-          url: '/learn/:moduleID',
+          url: '/learn/category/{moduleId:int}/content?{contentId:int}',
           parent: 'main',
           templateUrl: 'views/main/content.html',
           authenticate: true,
