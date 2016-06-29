@@ -14,8 +14,8 @@
   <!--</div>-->
   <div layout-gt-md="row" layout-sm="column" layout-xs="column" flex>
     <div class="container-fluid" layout="column" flex>
-      <md-card ng-repeat="move in contents" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}"
-               md-theme-watch flex="90" ui-sref='learn.category({contentId:move.id})' ui-sref-active="learnCategoryActive">
+      <md-card ng-repeat="move in contents" flex="90" ui-sref='learn.category({contentId:move.id})'
+               ui-sref-active="learnCategoryActive" class="animated fadeIn">
         <md-card-title>
           <md-card-title-media>
             <div class="md-media-sm card-media">

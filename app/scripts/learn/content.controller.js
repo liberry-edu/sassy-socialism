@@ -58,7 +58,7 @@ define(['./learn.module'], function () {
 
     $http({
       method: 'GET',
-      url: '/api/contents?filters={"module_id": ' + $stateParams.moduleID + '}'
+      url: '/api/contents?filters={"module_id":' + $stateParams.moduleID + '}'
     }).then(function (res) {
       $scope.contents = res.data;
       console.log('CONTENTS: ', $scope.contents);

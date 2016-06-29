@@ -1,10 +1,12 @@
-<div class="dashboard-page" layout="row">
+<div class="dashboard-page" layout="row" style="overflow:hidden;background:whitesmoke">
   <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-lg')" md-disable-backdrop
     md-whiteframe="4" ng-include src="'views/side-nav-menu.html'">
   </md-sidenav>
   <!--<div ng-include src="'views/side-nav-menu.html'"></div>-->
   <div layout="column" flex>
     <md-toolbar ng-include src="'views/header.html'"></md-toolbar>
-    <md-content ui-view class="main-content" layout="column" flex style="background: whitesmoke"></md-content>
+    <md-content class="ui-view-container" style="background: whitesmoke;overflow:hidden;" flex>
+      <div ui-view class="ui-view-wrapper main-content" layout="column" flex></div>
+    </md-content>
   </div>
 </div>

@@ -48,6 +48,6 @@ define(['./main.module'],
 
       $mdThemingProvider.theme('default')
         .primaryPalette('teal')
-        .accentPalette('indigo');
+        .accentPalette('red');
     }]);
   });
