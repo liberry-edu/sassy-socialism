@@ -36,8 +36,8 @@ define(['./account.module'], function () {
 
         $scope.authenticate = function () {
           console.log($scope.username);
-          if ($scope.username == null || $scope.username == "") {
-            alert("Please enter your username.");
+          if ($scope.username === null || $scope.username === "") {
+            window.alert("Please enter your username.");
             return false;
           }
 
@@ -62,20 +62,20 @@ define(['./account.module'], function () {
                   console.log("success");
                   AuthService.authenticate($scope.username.replace(/ /g,''), 'password');
                   $location.path('/main/learn');
-              }
+              };
 
               var errorCallbackRegister = function(responseRegister) {
                   console.log(responseRegister);
                   console.log("error");
                   $scope.error = responseRegister.message;
-              }
+              };
               
               var payloadRegister = {
                       username: $scope.username.replace(/ /g,''),
                       password: 'password',
                       name: $scope.username.replace(/ /g,''),
                       email: $scope.username.replace(/ /g,'')+"@liberry.in"
-              }
+              };
 
               $http.post('/api/register', payloadRegister).then(successCallbackRegister, errorCallbackRegister);
 

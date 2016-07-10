@@ -25,6 +25,7 @@ requirejs.config({
       'angular-messages': '../../bower_components/angular-messages/angular-messages',
       'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
       'angular-touch': '../../bower_components/angular-touch/angular-touch',
+      'angular-local-storage': '../../bower_components/angular-local-storage/dist/angular-local-storage',
       videogular: '../../bower_components/videogular/videogular'
     },
 
