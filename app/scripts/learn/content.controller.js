@@ -80,11 +80,13 @@ define(['./learn.module'], function () {
           content = contentList[i];
         }
       }
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
       $state.transitionTo('learn.content', {moduleId: content.module_id, contentId: content.id}, {
         location: 'replace',
         notify: false,
         reload: false
       });
+      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
       return content;
     }
 
