@@ -1,7 +1,7 @@
 /**
  * Created by peace on 12/6/16.
  */
-define(["./learn.module"], function () {
+define(['./learn.module'], function () {
 
   'use strict';
 
@@ -12,8 +12,9 @@ define(["./learn.module"], function () {
    * # MainCtrl
    * Controller of yapp
    */
-  angular.module('liberry.learnModule')
-    .controller('learn.ContentCtrl', ["$scope", "$stateParams","$http", function ($scope, $stateParams, $http) {
+  var learnModule = angular.module('liberry.learnModule');
+  learnModule.controller('learn.ContentCtrl', ['$scope', '$stateParams', '$http', '$state', function ($scope, $stateParams, $http, $state) {
+    function onCreate() {
       // $scope.contents = [
       //   {
       //     "key": "1232145",
@@ -53,27 +54,45 @@ define(["./learn.module"], function () {
       //     "type": "video"
       //   }
       // ];
+      var contentId = $state.params.contentId;
+      var moduleId = $stateParams.moduleId;
+      $scope.contents = [];
 
-      $scope.contents=[];
-     
-    $http({
-      method: 'GET',
-      url: '/api/contents?filters={"module_id": ' + $stateParams.moduleID + '}'
-    }).then(function (res) {
-      $scope.contents = res.data;
-      console.log("CONTENTS: ",$scope.contents);
-    }, function (er) {
-      console.log(er);
-    });
+      $http({
+        method: 'GET',
+        url: '/api/contents?filters={"module_id":' + moduleId + '}'
+      }).then(function (res) {
+        $scope.contents = res.data;
+        $scope.content = getActiveContent($scope.contents, contentId);
 
-      //$scope.content = $scope.contents[0];
+        console.log('CONTENTS: ', $scope.contents);
+      }, function (er) {
+        console.log(er);
+      });
 
-      // for (var i = 0; i < $scope.contents.length; i++) {
-      //   if ($stateParams.contentId === $scope.contents[i].key) {
-      //     $scope.content = $scope.contents[i];
-      //   }
-      // }
-      console.log("CONTENTS: ",$scope.contents);
+      console.log('CONTENTS: ', $scope.contents);
+    }
 
-    }]);
+    function getActiveContent(contentList, contentId) {
+      var content = contentList[0];
+      for (var i = 0; i < contentList.length; i++) {
+        if (contentId === contentList[i].id) {
+          content = contentList[i];
+        }
+      }
+      $state.transitionTo('learn.content', {moduleId: content.module_id, contentId: content.id}, {
+        location: 'replace',
+        notify: false,
+        reload: false
+      });
+      return content;
+    }
+
+    $scope.changeActiveContent = function (moduleId, contentId) {
+      $state.transitionTo('learn.content', {moduleId: moduleId, contentId: contentId}, {notify: false});
+      $scope.content = getActiveContent($scope.contents, contentId);
+    };
+
+    onCreate();
+  }]);
 });

@@ -1,21 +1,36 @@
 <div layout-padding>
-  <!--<snap-dragger></snap-dragger>-->
-  <!--<snap-content snap-opt-tap-to-close="false">-->
-
-  <!--<a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen;">-->
-  <!--<span class="menutoggle">-->
-  <!--<i ng-hide="menuOpen" class="fa fa-bars fa-2x"></i>-->
-  <!--<i ng-show="menuOpen" class="fa fa-times fa-2x"></i>-->
-  <!--</span>-->
-  <!--</a>-->
-
-  <!--<div class="fr">-->
-  <!--<h2>Welcome to Liberry</h2>-->
-  <!--</div>-->
-  <div layout-gt-md="row" layout-sm="column" layout-xs="column" flex>
-    <div class="container-fluid" layout="column" flex>
-      <md-card ng-repeat="move in contents" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}"
-               md-theme-watch flex="90" ui-sref='learn.category({contentId:move.id})' ui-sref-active="learnCategoryActive">
+  <div layout-gt-sm="row" layout-sm="column" layout-xs="column-reverse" flex>
+    <div flex-gt-sm="60" flex-xs="100" flex-sm="100">
+      <md-card layout-align="center center" layout="column">
+        <div ng-if="content.type == 'video'" style="width:100%;">
+          <div ng-init="r_url=content.contenturl;">
+            <div ng-controller="learn.VideoCtrl as ctr" class="videogular-container">
+              <videogular vg-theme="ctr.config.theme.url">
+                <vg-media vg-src="ctr.config.sources"
+                          vg-native-controls="true">
+                </vg-media>
+              </videogular>
+              {{ctr.config.tracks}}
+            </div>
+          </div>
+        </div>
+        <div ng-if="content.type == 'doc'">
+          <h3>I am a doc. I will open myself in an embedded document reader.</h3>
+        </div>
+        <div ng-if="content.type == 'audio'">
+          <h3>I am a music file. I will open myself in an embedded music player.</h3>
+        </div>
+        <div ng-if="content.type == 'game'">
+          <h3>I am a game. You can play myself.</h3>
+        </div>
+        <div ng-if="content.type === undefined || content.type === null">
+          <h3>Sorry no content found!</h3>
+        </div>
+      </md-card>
+    </div>
+    <div layout="column" flex>
+      <md-card ng-repeat="move in contents" ng-click='changeActiveContent(move.module_id, move.id)'
+               class="animated fadeIn" ng-class="{ 'learnCategoryActive' : content.id == move.id}">
         <md-card-title>
           <md-card-title-media>
             <div class="md-media-sm card-media">
@@ -29,33 +44,6 @@
         </md-card-title>
       </md-card>
     </div>
-
-    <div flex-gt-md="60" flex-xs flex-sm>
-      <md-card layout-align="center center" layout="column">
-        <div ng-show="content.type == 'video'" style="width:100%;">
-          <div ng-init="r_url=content.contenturl;">
-            <div ng-controller="learn.VideoCtrl as ctr" class="videogular-container">
-                <videogular vg-theme="ctr.config.theme.url">
-                    <vg-media vg-src="ctr.config.sources"
-                              vg-native-controls="true">
-                    </vg-media>
-                </videogular>
-                {{ctr.config.tracks}}
-            </div>
-          </div>
-        </div>
-        <div ng-show="content.type == 'doc'">
-          <h3>I am a doc. I will open myself in an embedded document reader.</h3>
-        </div>
-        <div ng-show="content.type == 'audio'">
-          <h3>I am a music file. I will open myself in an embedded music player.</h3>
-        </div>
-        <div ng-show="content.type == 'game'">
-          <h3>I am a game. You can play myself.</h3>
-        </div>
-      </md-card>
-    </div>
-
   </div>
   <!--</snap-content>-->
 </div>
